@@ -112,6 +112,11 @@
   .logos img{height:56px;max-width:31%;object-fit:contain;border-radius:12px;padding:5px;background:#fff;border:1px solid var(--line)}
   .logos .l1{background:#000;border-color:#000}
 
+  .autor{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:14px;color:var(--muted);font-size:.78rem;line-height:1.35;text-align:left}
+  .autor img{height:26px;width:auto}
+  .autor b{color:var(--txt);font-weight:600;white-space:nowrap}
+  body.present .autor{display:none}
+
   /* ---------- Aviso ---------- */
   #toast{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom));transform:translate(-50%,160%);opacity:0;background:var(--txt);color:#fff;
     padding:12px 18px;border-radius:14px;width:max-content;max-width:92vw;transition:transform .35s,opacity .35s;z-index:40;font-size:.92rem;box-shadow:0 10px 30px rgba(0,0,0,.18)}
@@ -201,6 +206,10 @@
     <img class="l1" src="img/1.jpeg" alt="Gran Misión Ciencia, Tecnología e Innovación">
     <img src="img/2.jpeg" alt="Brigada Tecnológica R+IA - Liceo Caracciolo Parra y Olmedo">
     <img src="img/3.jpeg" alt="Mincyt">
+  </div>
+  <div class="autor">
+    <img src="img/nexo-systems.png" alt="Nexo Systems">
+    <span>Elaborado por<br><b>Jean Guillén · Nexo Systems</b><br>Cel: 0424-7286170</span>
   </div>
 </footer>
 
