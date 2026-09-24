@@ -1,0 +1,16 @@
+{
+  "name": "HandTalk - Guante traductor",
+  "short_name": "HandTalk",
+  "description": "Recibe y muestra las palabras del guante traductor de lenguaje de señas HandTalk.",
+  "lang": "es",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#F4F7FB",
+  "theme_color": "#F4F7FB",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

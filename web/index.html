@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>HandTalk — el guante que traduce el lenguaje de señas</title>
+<meta name="theme-color" content="#F4F7FB">
+<meta name="description" content="HandTalk convierte las señas en palabras: un guante con sensores las detecta y las envía por Bluetooth a esta app, que las muestra y las lee en voz alta.">
+<meta property="og:title" content="HandTalk — el guante que traduce el lenguaje de señas">
+<meta property="og:description" content="Un guante con sensores detecta las señas y esta app las muestra en pantalla y las lee en voz alta.">
+<meta property="og:image" content="https://handtalk.pages.dev/capturas/1-palabra.jpg">
+<meta property="og:url" content="https://handtalk.pages.dev/">
+<meta property="og:type" content="website">
+<link rel="icon" href="app/icons/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;800&display=swap">
+<style>
+:root{
+  --bg:#F4F7FB; --surface:#FFFFFF; --soft:#EEF3F9; --line:#DCE4EE;
+  --txt:#1F2A44; --muted:#5F6B85;
+  --cyan:#1E9DB8; --purple:#7D44B8; --cyan-soft:#E3F4F8; --purple-soft:#F1E9F9;
+  --grad:linear-gradient(135deg,var(--cyan),var(--purple));
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--txt);font-family:Outfit,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:17px;line-height:1.6}
+img{max-width:100%;display:block}
+.centro{max-width:1020px;margin:0 auto;padding:0 20px}
+a{color:var(--purple)}
+
+/* ---------- portada ---------- */
+.portada{background:linear-gradient(160deg,#E6F5F9 0%,#F4F7FB 45%,#F3ECFA 100%);padding-block:28px 54px;border-bottom:1px solid var(--line)}
+.marca{display:flex;align-items:center;gap:12px;margin-bottom:40px}
+.marca img{width:48px;height:48px;border-radius:50%;background:#fff}
+.marca b{font-size:24px;font-weight:800;line-height:1}
+.marca b span{color:var(--purple)}
+.dos{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,280px);gap:48px;align-items:center}
+.dos > *{min-width:0}
+.etiqueta{display:inline-block;background:var(--surface);border:1px solid var(--line);border-radius:99px;padding:5px 14px;font-size:14px;color:var(--muted);margin-bottom:16px}
+.portada h1{font-size:clamp(34px,6vw,56px);line-height:1.06;font-weight:800;margin:0 0 16px;text-wrap:balance}
+.portada h1 span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.bajada{font-size:clamp(17px,2.3vw,20px);color:var(--muted);margin:0 0 28px;max-width:30em}
+.botones{display:flex;flex-wrap:wrap;gap:12px}
+.boton{display:inline-flex;align-items:center;gap:9px;text-decoration:none;background:var(--grad);color:#fff;border-radius:14px;
+  padding:15px 24px;font-weight:600;font-size:17px;box-shadow:0 8px 20px rgba(125,68,184,.22)}
+.boton:hover{filter:brightness(1.06)}
+.boton.hueco{background:var(--surface);color:var(--txt);border:1px solid var(--line);box-shadow:none}
+.bajo-botones{font-size:14px;color:var(--muted);margin:16px 0 0}
+.telefono img{width:100%;height:auto}
+.telefono{border:8px solid #fff;border-radius:30px;overflow:hidden;box-shadow:0 20px 50px rgba(31,42,68,.16);background:#fff}
+
+/* ---------- bloques ---------- */
+.bloque{padding-block:56px}
+h2.titulo{font-size:clamp(26px,4vw,36px);font-weight:800;margin:0 0 6px;text-wrap:balance}
+.sub{color:var(--muted);margin:0 0 30px;max-width:36em}
+.tarjetas{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.tarjeta{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px}
+.tarjeta h3{font-size:18px;margin:0 0 6px;text-wrap:balance}
+.tarjeta p{margin:0;color:var(--muted);font-size:15.5px}
+.tarjeta .n{font-size:14px;font-weight:600;color:var(--purple);background:var(--purple-soft);border-radius:99px;
+  width:30px;height:30px;display:grid;place-items:center;margin-bottom:12px}
+.tarjeta .ico{font-size:28px;margin-bottom:8px}
+
+/* ---------- flujo ---------- */
+.flujo{display:flex;align-items:stretch;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+.flujo div{flex:1;min-width:150px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;text-align:center}
+.flujo b{display:block;font-size:30px;margin-bottom:4px}
+.flujo span{font-size:15px;color:var(--muted)}
+.flujo i{align-self:center;font-style:normal;color:var(--purple);font-size:22px;font-weight:800}
+
+/* ---------- capturas ---------- */
+.tira{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
+.tira figure{margin:0}
+.tira img{width:100%;height:auto;border:1px solid var(--line);border-radius:18px;background:#fff}
+.tira figcaption{color:var(--muted);font-size:14.5px;margin-top:10px;text-align:center}
+
+/* ---------- pasos numerados ---------- */
+.pasos{counter-reset:p;list-style:none;margin:0;padding:0;display:grid;gap:10px;max-width:46em}
+.pasos li{counter-increment:p;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 16px 14px 58px;position:relative}
+.pasos li::before{content:counter(p);position:absolute;left:16px;top:14px;width:30px;height:30px;border-radius:50%;
+  background:var(--cyan-soft);color:#12677A;font-weight:600;display:grid;place-items:center;font-size:15px}
+.nota{background:#FFF8E8;border:1px solid #F1DDAA;border-radius:16px;padding:14px 18px;margin-top:18px;max-width:46em;font-size:15.5px}
+
+/* ---------- franja ---------- */
+.franja{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.franja .centro{padding-block:48px}
+.franja p{max-width:46em;margin:0 0 12px}
+code{background:var(--soft);border-radius:6px;padding:1px 6px;font-size:.92em}
+
+/* ---------- apoyo ---------- */
+.logos{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.logos img{height:84px;width:auto;border-radius:14px;padding:8px;background:#fff;border:1px solid var(--line)}
+.logos .l1{background:#000;border-color:#000}
+
+/* ---------- cierre ---------- */
+.cierre{text-align:center}
+.cierre .centro{padding-block:56px}
+.cierre h2{font-size:clamp(26px,4.4vw,38px);font-weight:800;margin:0 0 10px;text-wrap:balance}
+.cierre p{color:var(--muted);margin:0 0 24px}
+.cierre .botones{justify-content:center}
+
+footer{background:var(--surface);border-top:1px solid var(--line);color:var(--muted);font-size:14.5px}
+footer .centro{padding-block:24px;display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:space-between}
+
+@media (max-width:760px){
+  .dos{grid-template-columns:1fr;gap:34px}
+  .telefono{max-width:260px;margin:0 auto}
+  .marca{margin-bottom:28px}
+  .flujo i{transform:rotate(90deg);width:100%;text-align:center}
+  .flujo div{min-width:100%}
+  .logos img{height:64px}
+  .bloque{padding-block:44px}
+}
+</style>
+</head>
+<body>
+
+<header class="portada">
+  <div class="centro">
+    <div class="marca">
+      <img src="app/img/2.jpeg" alt="">
+      <b>Hand<span>Talk</span></b>
+    </div>
+    <div class="dos">
+      <div>
+        <span class="etiqueta">Brigada Tecnológica R+IA · Mérida, Venezuela</span>
+        <h1>Las manos hablan.<br><span>HandTalk las traduce.</span></h1>
+        <p class="bajada">Un guante con sensores reconoce las señas y envía la palabra por Bluetooth al teléfono. Esta app la muestra en grande y la lee en voz alta, para que cualquiera pueda entender.</p>
+        <div class="botones">
+          <a class="boton" href="app/">Abrir la app</a>
+          <a class="boton hueco" href="#instalar">Cómo instalarla</a>
+        </div>
+        <p class="bajo-botones">Gratis. Sin registro. Funciona en Android con Google Chrome.</p>
+      </div>
+      <div class="telefono">
+        <img src="capturas/1-palabra.jpg" width="780" height="1688" alt="La app HandTalk mostrando una palabra detectada por el guante">
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="bloque">
+  <div class="centro">
+    <h2 class="titulo">Cómo funciona</h2>
+    <p class="sub">De la seña a la voz en menos de un segundo.</p>
+    <div class="flujo" aria-hidden="true">
+      <div><b>🧤</b><span>El guante lee la posición de los dedos y el movimiento de la mano</span></div>
+      <i>→</i>
+      <div><b>📡</b><span>La placa ESP32 reconoce la seña y envía la palabra por Bluetooth</span></div>
+      <i>→</i>
+      <div><b>📱</b><span>La app la muestra en pantalla y la dice en voz alta</span></div>
+    </div>
+    <div class="tarjetas">
+      <div class="tarjeta"><div class="n">1</div><h3>Palabra en grande</h3><p>Cada seña aparece en el centro de la pantalla con letras grandes, fáciles de leer desde lejos.</p></div>
+      <div class="tarjeta"><div class="n">2</div><h3>Voz en español</h3><p>El teléfono lee cada palabra en voz alta. Se apaga con el botón de la bocina.</p></div>
+      <div class="tarjeta"><div class="n">3</div><h3>Arma la frase</h3><p>Las palabras se van juntando en una frase que se puede leer completa, corregir o borrar.</p></div>
+      <div class="tarjeta"><div class="n">4</div><h3>Modo exposición</h3><p>Pantalla completa para proyectar, y un modo demostración que simula palabras si el guante no está a mano.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="bloque" style="padding-top:0">
+  <div class="centro">
+    <h2 class="titulo">Así se ve</h2>
+    <p class="sub">Colores claros, botones grandes y letras gordas. Pensada para usarse en el teléfono, con una mano.</p>
+    <div class="tira">
+      <figure><img src="capturas/1-palabra.jpg" width="780" height="1688" alt="Palabra detectada" loading="lazy"><figcaption>La palabra que hace el guante</figcaption></figure>
+      <figure><img src="capturas/2-frase.jpg" width="780" height="1688" alt="Frase e historial" loading="lazy"><figcaption>La frase y el historial</figcaption></figure>
+      <figure><img src="capturas/3-conectar.jpg" width="780" height="1688" alt="Opciones de conexión" loading="lazy"><figcaption>Las formas de conectarse</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="franja" id="conectar">
+  <div class="centro">
+    <h2 class="titulo">Conectar el guante</h2>
+    <p class="sub">Se hace una sola vez el emparejamiento; después basta con tocar un botón.</p>
+    <ol class="pasos">
+      <li>Enciende el guante.</li>
+      <li>En el teléfono entra a <strong>Ajustes → Bluetooth</strong>, busca el guante y toca <strong>Vincular</strong> (esto solo se hace la primera vez).</li>
+      <li>Abre la app HandTalk y toca <strong>Conectar guante</strong>.</li>
+      <li>Escoge el guante en la lista y toca <strong>Conectar</strong>. Si Chrome pide permiso para <em>dispositivos cercanos</em>, acéptalo.</li>
+      <li>Cuando arriba diga <strong>Bluetooth</strong> en verde, ya está: haz una seña y la palabra aparecerá.</li>
+    </ol>
+    <div class="nota"><strong>Importante:</strong> hace falta un teléfono <strong>Android</strong> con <strong>Google Chrome</strong> actualizado (versión 138 o más reciente). En iPhone la app abre, pero Apple no permite que las páginas web usen Bluetooth; ahí solo funciona el modo demostración.</div>
+  </div>
+</section>
+
+<section class="bloque" id="instalar">
+  <div class="centro">
+    <h2 class="titulo">Instalarla en el teléfono</h2>
+    <p class="sub">No hace falta para usarla, pero si la instalas te queda con su icono en la pantalla de inicio, se abre sin barra del navegador y arranca aunque no haya internet.</p>
+    <div class="tarjetas">
+      <div class="tarjeta"><div class="ico">🤖</div><h3>En Android</h3><p>Abre <strong>Abrir la app</strong> en Chrome, toca los tres puntitos de arriba a la derecha y escoge <strong>Instalar app</strong> o <strong>Agregar a pantalla principal</strong>. Listo.</p></div>
+      <div class="tarjeta"><div class="ico">🍎</div><h3>En iPhone</h3><p>Abre <strong>Abrir la app</strong> en Safari, toca el botón de compartir —el cuadrito con la flecha— y escoge <strong>Agregar a inicio</strong>. Recuerda que en iPhone no conecta con el guante.</p></div>
+      <div class="tarjeta"><div class="ico">💻</div><h3>En la computadora</h3><p>Ábrela en Chrome o Edge. Con el guante conectado por <strong>cable USB</strong> sirve para probar el código de la placa sin usar el teléfono.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="franja">
+  <div class="centro">
+    <h2 class="titulo">Para el equipo: cómo está hecha</h2>
+    <p>La app es una página web instalable: todo está en un solo archivo, <code>app/index.html</code>. No usa servidores ni bases de datos, y no guarda nada de nadie; las palabras solo viven en la pantalla mientras está abierta.</p>
+    <p>Está publicada gratis en <strong>Cloudflare Pages</strong>, conectada a un repositorio de <strong>GitHub</strong>. Cada vez que se sube un cambio al repositorio, la página se actualiza sola en uno o dos minutos, y los teléfonos que la tienen instalada reciben la versión nueva la próxima vez que la abren.</p>
+    <p>El guante solo tiene que enviar cada palabra terminada en salto de línea, por ejemplo <code>SerialBT.println("HOLA");</code>. La app se conecta por Bluetooth clásico (ESP32), Bluetooth LE (ESP32-C3) o cable USB.</p>
+  </div>
+</section>
+
+<section class="bloque">
+  <div class="centro">
+    <h2 class="titulo">Con el apoyo de</h2>
+    <p class="sub">Proyecto de la Brigada Tecnológica de Robótica e Inteligencia Artificial del Liceo Caracciolo Parra y Olmedo.</p>
+    <div class="logos">
+      <img class="l1" src="app/img/1.jpeg" alt="Gran Misión Ciencia, Tecnología e Innovación Dr. Humberto Fernández-Morán" loading="lazy">
+      <img src="app/img/2.jpeg" alt="Brigada Tecnológica R+IA - Liceo Caracciolo Parra y Olmedo" loading="lazy">
+      <img src="app/img/3.jpeg" alt="Ministerio del Poder Popular para Ciencia y Tecnología" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="cierre franja">
+  <div class="centro">
+    <h2>Que nadie se quede sin entender</h2>
+    <p>Se abre y ya está. No hay que instalar nada para usarla.</p>
+    <div class="botones"><a class="boton" href="app/">Abrir la app</a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="centro">
+    <span>HandTalk · Brigada Tecnológica R+IA · Mérida, Venezuela</span>
+    <span><a href="app/?demo">Ver demostración</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
