@@ -1,5 +1,5 @@
 // Service worker de HandTalk: guarda la app para que abra aunque no haya internet.
-const CACHE = 'handtalk-v3';
+const CACHE = 'handtalk-v4';
 const FILES = ['./', 'index.html', 'manifest.webmanifest', 'icons/icon-192.png', 'icons/icon-512.png',
                'img/1.jpeg', 'img/2.jpeg', 'img/3.jpeg', 'img/nexo-systems.png'];
 self.addEventListener('install', e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(FILES))); self.skipWaiting(); });
